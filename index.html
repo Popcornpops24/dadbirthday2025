@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>Happy Birthday Dad!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #fff0f5;
-      font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      font-family: 'Gloria Hallelujah', cursive;
       text-align: center;
       overflow: hidden;
       position: relative;
@@ -16,26 +17,33 @@
 
     h1 {
       font-size: 3em;
-      color: #ff6b81;
+      color: #1e90ff;
       margin-top: 40px;
       animation: wave 2s ease-in-out infinite;
-      text-shadow: 2px 2px 0px #fff, 4px 4px 0px #ffcad4;
+      text-shadow: 2px 2px 0px #fff, 4px 4px 0px #7bed9f;
     }
 
     @keyframes wave {
-      0% { transform: rotate(-2deg); }
-      50% { transform: rotate(2deg); }
-      100% { transform: rotate(-2deg); }
+      0% { transform: rotate(-1.5deg); }
+      50% { transform: rotate(1.5deg); }
+      100% { transform: rotate(-1.5deg); }
+    }
+
+    .dad-img-wrapper {
+      margin-top: 30px;
+      position: relative;
+      display: inline-block;
     }
 
     .dad-img {
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      border: 6px dashed #fab1a0;
-      margin-top: 20px;
+      border: 6px dashed #7bed9f;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       animation: float 3s ease-in-out infinite;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      z-index: 1;
+      position: relative;
     }
 
     @keyframes float {
@@ -43,28 +51,56 @@
       50% { transform: translateY(-15px); }
     }
 
+    .sticker {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      z-index: 2;
+    }
+
+    .sticker1 { top: -20px; left: -20px; }
+    .sticker2 { bottom: -20px; right: -20px; }
+    .sticker3 { top: -20px; right: -20px; }
+
     .confetti {
       position: absolute;
-      width: 8px;
-      height: 8px;
-      background-color: #f9ca24;
+      width: 10px;
+      height: 10px;
+      background-color: #70a1ff;
       border-radius: 50%;
-      opacity: 0.7;
+      opacity: 0.6;
       animation: confetti-fall 6s linear infinite;
     }
 
     @keyframes confetti-fall {
-      0% {
-        transform: translateY(-10%) rotate(0deg);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-      }
+      0% { transform: translateY(-10%) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <h1>🎈 Happy Birthday Dad! 🎉</h1>
+  <h1>🎉 Happy Birthday Dad! 🎉</h1>
 
-  <!-- Replace with your dad's photo -->
-  <img src="da
+  <div class="dad-img-wrapper">
+    <!-- Your dad's photo -->
+    <img src="dad.jpg" alt="Dad" class="dad-img" />
+
+    <!-- Cute stickers (can be changed later) -->
+    <img src="https://cdn-icons-png.flaticon.com/128/742/742751.png" class="sticker sticker1" />
+    <img src="https://cdn-icons-png.flaticon.com/128/616/616408.png" class="sticker sticker2" />
+    <img src="https://cdn-icons-png.flaticon.com/128/3917/3917636.png" class="sticker sticker3" />
+  </div>
+
+  <!-- Confetti animation -->
+  <script>
+    for (let i = 0; i < 60; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDelay = Math.random() * 5 + 's';
+      confetti.style.backgroundColor = ['#70a1ff','#2ed573','#1e90ff','#81ecec'][Math.floor(Math.random()*4)];
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
